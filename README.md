@@ -1,66 +1,44 @@
+# eth-bangkok-2024
+
 ## Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
-
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+### Deploy FhenixIntegerDivisionLibrary to Fhenix with Foundry Blockscout Verification
+```
+forge create src/library/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionLibrary \
+--private-key $devTestnetPrivateKey \
+--rpc-url https://api.nitrogen.fhenix.zone \
+--verify \
+--verifier blockscout \
+--verifier-url https://explorer.nitrogen.fhenix.zone/api/
+```
+### Verify Blockscout Contract Already Deployed
+```
+forge verify-contract \
+--rpc-url https://api.nitrogen.fhenix.zone \
+<contract_address> \
+src/library/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionLibrary \
+--verifier blockscout \
+--verifier-url https://explorer.nitrogen.fhenix.zone/api/
 ```
 
-### Test
+### Fhenix Nitro Testnet Contract Verified On Blockscout
 
+https://explorer.nitrogen.fhenix.zone/address/0x50684c64F4b80b5687d0891c9339De8fFE281A33?tab=contract
+
+## Frontend
+
+Run locally for testing with:
+
+⚠️ Node.js version v16.14.2 is recommended to avoid errors running the website locally. ⚠️
 ```shell
-$ forge test
+npm install http-server
 ```
-
-### Format
-
+then
 ```shell
-$ forge fmt
+npx http-server
 ```
-
-### Gas Snapshots
-
+or
 ```shell
-$ forge snapshot
+http-server
 ```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Note: this website example uses Vanilla Javascript.
