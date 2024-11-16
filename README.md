@@ -4,7 +4,7 @@
 
 ### Deploy FhenixIntegerDivisionLibrary to Fhenix with Foundry Blockscout Verification
 ```
-forge create src/library/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionLibrary \
+forge create src/lib/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionLibrary \
 --private-key $devTestnetPrivateKey \
 --rpc-url https://api.nitrogen.fhenix.zone \
 --verify \
@@ -16,7 +16,7 @@ forge create src/library/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionL
 forge verify-contract \
 --rpc-url https://api.nitrogen.fhenix.zone \
 <contract_address> \
-src/library/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionLibrary \
+src/lib/FhenixIntegerDivisionLibrary.sol:FhenixIntegerDivisionLibrary \
 --verifier blockscout \
 --verifier-url https://explorer.nitrogen.fhenix.zone/api/
 ```
