@@ -4,7 +4,7 @@
 detectMetamaskInstalled() //When the page is opened check for error handling issues.
 
 let accounts = []; ////Empty array to be filled once Metamask is called.
-document.getElementById("enableEthereumButton").innerHTML =  "Connect Metamask 🦊"
+document.getElementById("enableEthereumButton").innerHTML =  "Connect Metamask"
 document.getElementById("getValueStateSmartContract").innerHTML =  "Loading..."
 
 const baseSepoliaChainId = 84532;

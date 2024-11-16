@@ -1,8 +1,5 @@
 .buttonConnectMetamask {
     background-color: #000000;
-    color: #ff7300;
-    border-style: solid;
-    border-color: #ff7300;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -11,10 +8,7 @@
 }
 
 .buttonConnectMetamask:hover {
-    background-color: #ff7300;
     color: #000000;
-    border-style: solid;
-    border-color: #ff7300;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
