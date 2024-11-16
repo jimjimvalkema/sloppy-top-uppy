@@ -1,1 +1,3 @@
-@openzeppelin/=lib/@openzeppelin/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+cowprotocol/=lib/contracts/src
+safe/=lib/extensible-fallback-handler/contracts

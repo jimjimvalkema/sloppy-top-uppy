@@ -7,3 +7,10 @@
 [submodule "lib/contracts"]
 	path = lib/contracts
 	url = https://github.com/cowprotocol/contracts
+[submodule "lib/cowprotocol"]
+	path = lib/cowprotocol
+	url = https://github.com/cowprotocol/contracts
+	branch = main
+[submodule "lib/extensible-fallback-handler"]
+	path = lib/extensible-fallback-handler
+	url = https://github.com/cowdao-grants/extensible-fallback-handler
