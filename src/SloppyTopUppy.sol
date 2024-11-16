@@ -26,7 +26,7 @@ string constant PRICE_CHECKER_FAILED = "price checker failed";
  *      ensure that the order is not filled multiple times, a `minSellBalance` is
  *      checked before the order is placed.
  */
-contract GoodAfterTime is BaseConditionalOrder {
+contract SloppyTopUppy is BaseConditionalOrder {
     using SafeCast for uint256;
 
     // --- types
@@ -49,17 +49,19 @@ contract GoodAfterTime is BaseConditionalOrder {
         bytes payload;
         uint256 allowedSlippage; // in basis points
     }
-
+    
+    // my contract is the handler inside create on composablecow
     function getTradeableOrder(
         address owner,
         address,
         bytes32,
         bytes calldata staticInput,
-        bytes calldata offchainInput
+        bytes calldata offchainInput //igno0re this its the amount to buy but fuck it
     ) public view override returns (GPv2Order.Data memory order) {
         // Decode the payload into the good after time parameters.
         Data memory data = abi.decode(staticInput, (Data));
 
+        // @jimjim remove this and check the EURe balance instead
         // Don't allow the order to be placed before it becomes valid.
         if (!(block.timestamp >= data.startTime)) {
             revert IConditionalOrder.PollTryAtEpoch(data.startTime, TOO_EARLY);
@@ -90,12 +92,12 @@ contract GoodAfterTime is BaseConditionalOrder {
             data.sellToken,
             data.buyToken,
             data.receiver,
-            data.sellAmount,
+            data.sellAmount, // MAKE DATA.SELLAMOUNT
             buyAmount,
             data.endTime.toUint32(),
             data.appData,
             0, // use zero fee for limit orders
-            GPv2Order.KIND_SELL,
+            GPv2Order.KIND_SELL, // MAKE THIS KIND BUY
             data.allowPartialFill,
             GPv2Order.BALANCE_ERC20,
             GPv2Order.BALANCE_ERC20
